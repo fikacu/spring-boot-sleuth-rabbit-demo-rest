@@ -35,6 +35,7 @@ The second paragraph traces the calls in the manner of ![spring_docs_image](http
 as shown on [spring_docs](https://github.com/spring-cloud/spring-cloud-sleuth)
 
 In the given image, it should not matter whether the REQUEST arrow is done through AMQP, REST or any other kind of communication.
+
 Therefore, should `DefaultAmqpMessagingSpanManager.afterHandle()` really call the `tracer.detach` when it finishes processing tracing information via AMQP.
 This seems to prevent reuse of the existing tracing information received via AMQP headers, in this case.
 
