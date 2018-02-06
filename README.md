@@ -34,7 +34,11 @@ The second paragraph has the shared trace id (`efda1e9e2dfac778`) for all the ca
 The second paragraph traces the calls in the manner of ![spring_docs_image](https://raw.githubusercontent.com/spring-cloud/spring-cloud-sleuth/master/docs/src/main/asciidoc/images/trace-id.png)
 as shown on [spring_docs](https://github.com/spring-cloud/spring-cloud-sleuth)
 
+In the given image, it should not matter whether the REQUEST arrow is done through AMQP, REST or any other kind of communication.
+Therefore, should `DefaultAmqpMessagingSpanManager.afterHandle()` really call the `tracer.detach` when it finishes processing tracing information via AMQP.
+This seems to prevent reuse of the existing tracing information received via AMQP headers, in this case.
 
+In the given scenario, in the first paragraph, since `CURRENT_SPAN` is null in `SpanContextHolder`, a new traceId and spanId will be created after a REST call is received in `MyMessageHandler.testRest()`, effectively resulting in the original traceId being lost.  
 
 
 
