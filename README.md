@@ -1,4 +1,4 @@
-# spring-boot-sleuth-rabbit-demo
+# spring-boot-sleuth-rabbit-demo-rest
 
 This demo shows a problem when using `spring-cloud-sleuth-amqp-starter` with a combination of a AMQP message and a REST call in the same flow
 
