@@ -4,9 +4,9 @@ This demo shows a problem when using `spring-cloud-sleuth-amqp-starter` with a c
 
 1. start RabbitMQ
 2. start the app
-3. call http://localhost:8888/ 
+3. call http://localhost:8888/start
 4. this will trigger a rabbit message, which will be handled by `MyMessageHandler.onMessage(MyMessage)`
-5. this will trigger a GET REST call, which will be handled by `MyMessageHandler.testRest()`
+5. this will trigger a GET REST call to http://localhost:8888/test-rest, which will be handled by `MyMessageHandler.testRest()`
 
 
 With the version 0.9 of `spring-cloud-sleuth-amqp-starter` used, the log output looks like this:
